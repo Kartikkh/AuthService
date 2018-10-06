@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+
+var app = require('../app');
+var http = require('http');
+
+const port = app.get('port');
+
+const server = http.createServer(app);
+
+server.listen(port, (err) => {
+    if (err) {
+        return console.log(`Error on listen port: ${err}`);
+    }
+
+    console.log(`Server listening on ${app.get('port')}`);
+});
