@@ -3,6 +3,8 @@ const express = require('express');
 const logger = require('morgan');
 const app = express();
 
+
+// middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -11,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 // routes
 app.use('/auth/login', require('./routes/signup'));
 app.use('/auth/signup', require('./routes/login'));
+app.use('/auth/logout',require('./routes/logout'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
